@@ -116,6 +116,7 @@ public final class SocketEngine: NSObject, SocketEnginePollable, SocketEngineWeb
         DefaultSocketLogger.Logger.log("Engine is being deinit", type: logType)
         closed = true
         stopPolling()
+        ws?.disconnect(forceTimeout: 0)
     }
     
     private func checkAndHandleEngineError(msg: String) {
